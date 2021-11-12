@@ -6,13 +6,15 @@ var pos = Vector2()
 var used:bool = false
 var strength:float = 0
 export(int,50, 300) var max_drag = 100
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			if(get_rect().has_point(event.position)):
-				id = event.index
-				used = true
-				pos = event.position
+				if index_is_free(event.index):
+					id = event.index
+					used = true
+					pos = event.position
 		else:
 			if id == event.index:
 				used = false
@@ -27,3 +29,9 @@ func _input(event):
 			vec = vec.normalized()
 	pass
 
+func index_is_free(index:int)->bool:
+	var result = true
+	for control in get_tree().get_nodes_in_group("Touch_controls"):
+		if control.id == index: 
+			result = false
+	return result

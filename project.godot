@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Arpg"
-run/main_scene="res://scenes/Test_scene.tscn"
+run/main_scene="res://scenes/bereg.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -20,6 +20,30 @@ window/size/width=800
 window/size/height=450
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 2,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": true,
+"flags/mipmaps": true,
+"flags/repeat": 1,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": false,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input_devices]
 
