@@ -33,7 +33,7 @@ func _physics_process(delta):
 	movement.x = velocity.x*forward_speed
 	movement.z = velocity.z*forward_speed
 	movement += gravity*delta
-	if bj.pressed and is_on_floor():
+	if bj.pressed and is_on_floor() and !is_sit:
 		movement.y += 300*delta
 	movement = move_and_slide(movement, Vector3.UP)
 	if !bs.pressed and is_sit:
