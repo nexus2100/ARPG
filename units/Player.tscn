@@ -104,9 +104,10 @@ current = true
 far = 300.0
 
 [node name="Center" type="ColorRect" parent="."]
-margin_left = 400.0
+anchor_left = 0.5
+anchor_right = 0.5
 margin_top = 225.0
-margin_right = 404.0
+margin_right = 4.0
 margin_bottom = 229.0
 rect_rotation = 45.0
 rect_pivot_offset = Vector2( 2, 2 )
