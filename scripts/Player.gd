@@ -7,9 +7,12 @@ var forward_speed = 3
 var rlb_speed = 4
 var accel = 6
 var deaccel = 15
+
 onready var mc = $Move_control
 onready var rc = $Rotate_control
 onready var bj = $Button_jump
+onready var bs = $Button_sit
+var is_sit:bool = false
 var jump:bool = false
 func _ready():
 	pass
@@ -33,7 +36,13 @@ func _physics_process(delta):
 	if bj.pressed and is_on_floor():
 		movement.y += 300*delta
 	movement = move_and_slide(movement, Vector3.UP)
-	print(mc.id," ",rc.id," ", bj.id)
+	if !bs.pressed and is_sit:
+		is_sit = false
+		$AnimationPlayer.play_backwards("sit")
+	if bs.pressed and !is_sit:
+		is_sit = true
+		$AnimationPlayer.play("sit")
+	print($Button_sit.pressed)
 	pass
 
 
