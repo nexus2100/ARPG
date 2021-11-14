@@ -100,7 +100,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77832, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+keep_aspect = 0
 current = true
+fov = 80.0
 far = 300.0
 
 [node name="Center" type="ColorRect" parent="."]
@@ -138,6 +140,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button_sit" type="TextureRect" parent="." groups=["Touch_controls"]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -368.0
+margin_top = -114.0
+margin_right = -299.0
+margin_bottom = -47.0
+rect_pivot_offset = Vector2( 34, 33 )
+focus_mode = 1
+texture = ExtResource( 4 )
+expand = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button_jump" type="TextureRect" parent="." groups=["Touch_controls"]]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -153,24 +173,6 @@ focus_mode = 1
 texture = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button_sit" type="TextureRect" parent="." groups=["Touch_controls"]]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -368.0
-margin_top = -114.0
-margin_right = -299.0
-margin_bottom = -47.0
-rect_pivot_offset = Vector2( 34, 33 )
-focus_mode = 1
-texture = ExtResource( 4 )
-expand = true
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -8,15 +8,19 @@ func _ready():
 	texture_pressed = load("res://resources/sprites/down_pressed.png")
 
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
-		if get_rect().has_point(event.position):
-			if index_is_free(event.index):
-				if !pressed:
-					pressed = true
-					texture = texture_pressed
-				else:
-					pressed = false
-					texture = texture_unpressed
+	if event is InputEventScreenTouch:
+		if event.pressed and get_rect().has_point(event.position):
+			if !pressed:
+				id = event.index
+				pressed = true
+				texture = texture_pressed
+			else:
+				id = event.index
+				pressed = false
+				texture = texture_unpressed
+		else:
+			id = -1
+		print(event.pressed,"   ", event.index,"  ", id,"  ", pressed)
 
 
 func index_is_free(index:int)->bool:

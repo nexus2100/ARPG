@@ -19,10 +19,10 @@ func _ready():
 
 func _physics_process(delta):
 	direction = Vector3.ZERO
+	
 	if rc.used:
-		
-		$Head.transform.basis = Basis(Vector3.RIGHT,clamp($Head.rotation.x - rc.vec.y*delta,-1.4,1.4))
-		transform.basis = Basis(Vector3.UP,rotation.y + rc.vec.x*delta)
+		$Head.transform.basis = Basis(Vector3.RIGHT,clamp($Head.rotation.x - rc.vec.y*delta*rc.strength,-1.4,1.4))
+		transform.basis = Basis(Vector3.UP,rotation.y + rc.vec.x*delta*rc.strength)
 	if  abs(mc.vec.y)>0.6 and mc.strength > 0.4:
 		direction.z += sign(mc.vec.y)
 	elif  abs(mc.vec.x) > 0.6 and mc.strength > 0.3:
@@ -42,7 +42,6 @@ func _physics_process(delta):
 	if bs.pressed and !is_sit:
 		is_sit = true
 		$AnimationPlayer.play("sit")
-	print($Button_sit.pressed)
 	pass
 
 
