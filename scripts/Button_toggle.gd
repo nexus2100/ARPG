@@ -20,7 +20,6 @@ func _input(event):
 				texture = texture_unpressed
 		else:
 			id = -1
-		print(event.pressed,"   ", event.index,"  ", id,"  ", pressed)
 
 
 func index_is_free(index:int)->bool:
