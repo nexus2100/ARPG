@@ -100,7 +100,7 @@ data = PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.0749, 0.5656, 0.
 [node name="arpg_test_room" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.99376, 0, -0.111538, 0, 1, 0, 0.111538, 0, -0.99376, 7.71227, 0.20059, -36.5781 )
+transform = Transform( 0.998762, 0, 0.0497384, 0, 1, 0, -0.0497384, 0, 0.998762, 7.71227, 20.2295, -49.5987 )
 
 [node name="WallGround" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
