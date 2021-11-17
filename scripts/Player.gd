@@ -5,9 +5,9 @@ var velocity = Vector3()
 var movement = Vector3()
 var direction = Vector3()
 var walk_speed = 8
-var acceleration = 10
-var air_acceleration = acceleration/2
-var current_acceleration = air_acceleration
+var ACCELERATION = 10
+var air_acceleration = ACCELERATION/2
+var acceleration = ACCELERATION
 
 onready var mc = $Move_control
 onready var rc = $Rotate_control
@@ -35,12 +35,12 @@ func move_and_rotate(delta):
 		direction.x += sign(mc.vec.x)
 	direction = direction.rotated(Vector3.UP,rotation.y)
 	if is_on_floor():
-		current_acceleration = acceleration
+		acceleration = ACCELERATION
 		movement.y = 0
 		gravity  = -get_floor_normal()*10
 		grounded = true
 	else:
-		current_acceleration =  air_acceleration
+		acceleration =  air_acceleration
 		if grounded:
 			gravity = Vector3()
 			grounded = false
@@ -49,14 +49,15 @@ func move_and_rotate(delta):
 	if is_on_ceiling() and gravity.y >= 0:
 		gravity.y = 0
 	if bj.pressed and is_on_floor() and !is_sit:
-		movement.y += 300*delta
+		grounded = false
+		gravity = Vector3.UP * 5
 	if !bs.pressed and is_sit:
 		is_sit = false
 		$AnimationPlayer.play_backwards("sit")
 	if bs.pressed and !is_sit:
 		is_sit = true
 		$AnimationPlayer.play("sit")
-	velocity = velocity.linear_interpolate(direction * walk_speed*mc.strength, current_acceleration * delta)
+	velocity = velocity.linear_interpolate(direction * walk_speed*mc.strength, acceleration * delta)
 	movement.x = velocity.x + gravity.x
 	movement.z = velocity.z + gravity.z
 	movement.y = gravity.y

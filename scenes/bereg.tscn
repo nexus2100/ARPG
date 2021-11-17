@@ -96,6 +96,7 @@ data = PoolVector3Array( 0, 0, -0.5, -0.433, 0, 0.25, 0.433, 0, 0.25, -0.1922, 1
 [sub_resource type="ProceduralSky" id=16]
 sky_top_color = Color( 0.137255, 0.494118, 0.690196, 1 )
 sky_horizon_color = Color( 0.945098, 0.913725, 0.890196, 1 )
+ground_bottom_color = Color( 0.0117647, 0.388235, 0, 1 )
 ground_horizon_color = Color( 0.788235, 0.909804, 0.776471, 1 )
 sun_color = Color( 0.870588, 0.345098, 0.160784, 1 )
 sun_latitude = 3.0
@@ -105,11 +106,8 @@ sun_energy = 11.0
 [sub_resource type="Environment" id=17]
 background_mode = 2
 background_sky = SubResource( 16 )
-fog_enabled = true
 fog_color = Color( 0.819608, 0.866667, 0.913725, 1 )
 fog_depth_enabled = false
-fog_height_enabled = true
-fog_height_min = 17.0
 fog_height_curve = 2.21914
 
 [node name="bereg" type="Spatial"]
@@ -133,14 +131,14 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Rock1/StaticBody"]
 shape = SubResource( 12 )
 
-[node name="Sphere001" type="MeshInstance" parent="."]
+[node name="Rock2" type="MeshInstance" parent="."]
 transform = Transform( 0.23718, -0.839271, 0.489255, 0.91187, 0.366016, 0.185812, -0.335021, 0.402066, 0.852117, 6.70933, 5.26899, 31.3618 )
 mesh = SubResource( 6 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Sphere001"]
+[node name="StaticBody" type="StaticBody" parent="Rock2"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Sphere001/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Rock2/StaticBody"]
 shape = SubResource( 13 )
 
 [node name="Pillar" type="MeshInstance" parent="."]

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Arpg"
-run/main_scene="res://scenes/bereg.tscn"
+run/main_scene="res://scenes/arpg_test_room.tscn"
 config/icon="res://icon.png"
 
 [display]
