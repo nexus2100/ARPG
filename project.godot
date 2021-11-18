@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Arpg"
-run/main_scene="res://scenes/arpg_test_room.tscn"
+run/main_scene="res://scenes/bereg.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=30
 
 [display]
 
@@ -51,10 +55,12 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
+common/physics_fps=30
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/shading/force_vertex_shading.mobile=false
 quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"

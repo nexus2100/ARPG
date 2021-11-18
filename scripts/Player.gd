@@ -13,6 +13,8 @@ onready var mc = $Move_control
 onready var rc = $Rotate_control
 onready var bj = $Button_jump
 onready var bs = $Button_sit
+onready var sr:RayCast = $Head/Sign_ray
+onready var inf:Label = $Info
 var is_sit:bool = false
 var jump:bool = false
 var grounded:bool = false
@@ -21,6 +23,7 @@ func _ready():
 
 func _physics_process(delta):
 	move_and_rotate(delta)
+	what_sign(delta)
 	pass
 
 
@@ -62,8 +65,12 @@ func move_and_rotate(delta):
 	movement.z = velocity.z + gravity.z
 	movement.y = gravity.y
 	movement = move_and_slide(movement, Vector3.UP, false, 4, 0.785398, false)
-	print(movement)
-	
 
 
+func what_sign(delta):
+	if sr.is_colliding():
+		inf.text = sr.get_collider().title
+	else:
+		inf.text = ""
+	pass
 

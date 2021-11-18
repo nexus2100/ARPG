@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/scenes/default.material" type="Material" id=1]
 [ext_resource path="res://units/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Table.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Staff.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "Plane"
@@ -161,8 +163,17 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Palm/StaticBody"]
 shape = SubResource( 15 )
 
+[node name="Staff" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.999881, 0.015232, 0.00233926, -0.0154106, -0.988295, -0.151778, 6.6352e-09, -0.151796, 0.988412, -0.174714, 7.05467, 3.47919 )
+mode = 1
+mass = 2.0
+gravity_scale = 0.5
+
+[node name="Table" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.807009, 6.3362, 3.94279 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 17 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.19944, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88602, 0 )
