@@ -2,9 +2,9 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.s3tc.stex"
-path.etc2="res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.etc2.stex"
-path.etc="res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.etc.stex"
+path.s3tc="res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.s3tc.stex"
+path.etc2="res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.etc2.stex"
+path.etc="res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/sprites/down.png"
-dest_files=[ "res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.s3tc.stex", "res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.etc2.stex", "res://.import/down.png-3da349e9cc25a1a2939ff388c54e4d7d.etc.stex" ]
+source_file="res://resources/sprites/run.png"
+dest_files=[ "res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.s3tc.stex", "res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.etc2.stex", "res://.import/run.png-0d0ecd159dcc2ebf00ad05e8ab94c18c.etc.stex" ]
 
 [params]
 

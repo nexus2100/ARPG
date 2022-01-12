@@ -4,10 +4,11 @@ var gravity = GRAVITY
 var velocity = Vector3()
 var movement = Vector3()
 var direction = Vector3()
-var walk_speed = 8
-var ACCELERATION = 10
+export(int,1,100) var walk_speed:int = 8
+export(int,1,100) var ACCELERATION:int = 10
 var air_acceleration = ACCELERATION/2
 var acceleration = ACCELERATION
+export(float, 0.1,2) var neck_speed:float = 1.2
 
 onready var mc = $Move_control
 onready var rc = $Rotate_control
@@ -22,21 +23,27 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	move_and_rotate(delta)
+	if rc.used: 
+		look_about(delta)
+	if mc.used:
+		motion(delta)
 	what_sign(delta)
 	pass
 
+func look_about(delta):
+	$Head.transform.basis = Basis(Vector3.RIGHT,clamp($Head.rotation.x - rc.vec.y*delta*neck_speed*rc.strength,-1.4,1.4))
+	transform.basis = Basis(Vector3.UP,rotation.y + rc.vec.x*delta*neck_speed*rc.strength)
+	pass
 
-func move_and_rotate(delta):
+func motion(delta):
 	direction = Vector3.ZERO
-	if rc.used:
-		$Head.transform.basis = Basis(Vector3.RIGHT,clamp($Head.rotation.x - rc.vec.y*delta*rc.strength,-1.4,1.4))
-		transform.basis = Basis(Vector3.UP,rotation.y + rc.vec.x*delta*rc.strength)
+	
 	if  abs(mc.vec.y)>0.7 and mc.strength > 0.1:
 		direction.z += sign(mc.vec.y)
 	elif  abs(mc.vec.x) > 0.7 and mc.strength > 0.1:
 		direction.x += sign(mc.vec.x)
 	direction = direction.rotated(Vector3.UP,rotation.y)
+
 	if is_on_floor():
 		acceleration = ACCELERATION
 		movement.y = 0
@@ -49,8 +56,10 @@ func move_and_rotate(delta):
 			grounded = false
 		else:
 			gravity += delta * GRAVITY
+	
 	if is_on_ceiling() and gravity.y >= 0:
 		gravity.y = 0
+	
 	if bj.pressed and is_on_floor() and !is_sit:
 		grounded = false
 		gravity = Vector3.UP * 5

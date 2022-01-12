@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Touch_contorl_field.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Button.gd" type="Script" id=3]
 [ext_resource path="res://resources/sprites/down.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Button_toggle.gd" type="Script" id=5]
+[ext_resource path="res://resources/sprites/run.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=4]
 radius = 0.4
@@ -151,10 +152,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -368.0
-margin_top = -114.0
-margin_right = -299.0
-margin_bottom = -47.0
+margin_left = -240.0
+margin_top = -98.0
+margin_right = -171.0
+margin_bottom = -31.0
 rect_pivot_offset = Vector2( 34, 33 )
 focus_mode = 1
 texture = ExtResource( 4 )
@@ -169,14 +170,32 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -280.0
-margin_top = -114.0
-margin_right = -211.0
-margin_bottom = -47.0
+margin_left = -184.0
+margin_top = -178.0
+margin_right = -115.0
+margin_bottom = -111.0
 rect_rotation = 180.0
 rect_pivot_offset = Vector2( 34, 33 )
 focus_mode = 1
 texture = ExtResource( 4 )
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_run" type="TextureRect" parent="." groups=["Touch_controls"]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -226.0
+margin_right = -27.0
+margin_bottom = -159.0
+rect_pivot_offset = Vector2( 34, 33 )
+focus_mode = 1
+texture = ExtResource( 6 )
 expand = true
 script = ExtResource( 3 )
 __meta__ = {

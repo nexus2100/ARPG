@@ -3,9 +3,11 @@ var id = -1
 var pressed:bool = false
 var texture_unpressed
 var texture_pressed 
+export var path_texture_pressed:String
+export var path_texture_unpressed:String
 func _ready():
-	texture_unpressed = load("res://resources/sprites/down.png")
-	texture_pressed = load("res://resources/sprites/down_pressed.png")
+	texture_unpressed = load(path_texture_unpressed)
+	texture_pressed = load(path_texture_pressed)
 
 func _input(event):
 	if event is InputEventScreenTouch:
