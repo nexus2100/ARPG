@@ -13,6 +13,7 @@ config_version=4
 config/name="Arpg_android"
 run/main_scene="res://scenes/bereg.tscn"
 config/icon="res://icon.png"
+<<<<<<<HEADconfig/name="Arpg_android"
 
 [autoload]
 
