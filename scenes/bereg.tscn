@@ -168,6 +168,7 @@ transform = Transform( -0.999881, 0.015232, 0.00233926, -0.0154106, -0.988295, -
 mode = 1
 mass = 2.0
 gravity_scale = 0.5
+title = "Посох судьбы"
 
 [node name="Table" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.807009, 6.3362, 3.94279 )

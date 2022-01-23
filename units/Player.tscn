@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Touch_contorl_field.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Button.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Touch_button.gd" type="Script" id=3]
 [ext_resource path="res://resources/sprites/down.png" type="Texture" id=4]
-[ext_resource path="res://scripts/Button_toggle.gd" type="Script" id=5]
+[ext_resource path="res://resources/sprites/down_pressed.png" type="Texture" id=7]
+[ext_resource path="res://fonts/d9464-arkhip_font.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="CapsuleShape" id=4]
 radius = 0.4
@@ -89,6 +90,9 @@ tracks/2/keys = {
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 0.5 ) ]
 }
 
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 8 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -103,7 +107,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77832, 0 )
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
 keep_aspect = 0
 current = true
-fov = 80.0
 far = 300.0
 
 [node name="Sign_ray" type="RayCast" parent="Head"]
@@ -111,12 +114,26 @@ enabled = true
 cast_to = Vector3( 0, 0, 3 )
 collision_mask = 8
 
-[node name="Center" type="ColorRect" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/sit = SubResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 800.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="ColorRect" parent="Control"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_top = 225.0
-margin_right = 4.0
-margin_bottom = 229.0
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
 rect_rotation = 45.0
 rect_pivot_offset = Vector2( 2, 2 )
 color = Color( 0.980392, 0, 0, 1 )
@@ -124,19 +141,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rotate_control" type="Control" parent="." groups=["Touch_controls"]]
+[node name="Rotate_control" type="Control" parent="Control"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -408.0
+margin_left = -400.0
 margin_top = -450.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Move_control" type="Control" parent="." groups=["Touch_controls"]]
+[node name="Move_control" type="Control" parent="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -450.0
@@ -146,33 +163,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button_sit" type="TextureRect" parent="." groups=["Touch_controls"]]
+[node name="Button_sit" type="TextureRect" parent="Control"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -368.0
-margin_top = -114.0
-margin_right = -299.0
-margin_bottom = -47.0
+margin_left = -269.0
+margin_top = -115.0
+margin_right = -200.0
+margin_bottom = -48.0
 rect_pivot_offset = Vector2( 34, 33 )
 focus_mode = 1
 texture = ExtResource( 4 )
 expand = true
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+toogle_mode = true
+pressed_texture = ExtResource( 7 )
 
-[node name="Button_jump" type="TextureRect" parent="." groups=["Touch_controls"]]
+[node name="Button_jump" type="TextureRect" parent="Control"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -280.0
-margin_top = -114.0
-margin_right = -211.0
-margin_bottom = -47.0
+margin_left = -161.0
+margin_top = -187.0
+margin_right = -92.0
+margin_bottom = -120.0
 rect_rotation = 180.0
 rect_pivot_offset = Vector2( 34, 33 )
 focus_mode = 1
@@ -182,16 +201,14 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+pressed_texture = ExtResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/sit = SubResource( 3 )
-
-[node name="Info" type="Label" parent="."]
+[node name="Info" type="Label" parent="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -128.0
 margin_bottom = 32.0
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

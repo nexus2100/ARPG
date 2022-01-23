@@ -10,9 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Arpg"
+config/name="Arpg_android"
 run/main_scene="res://scenes/bereg.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Touch="*res://scripts/Touch.gd"
 
 [debug]
 
@@ -22,8 +26,10 @@ settings/fps/force_fps=30
 
 window/size/width=800
 window/size/height=450
+window/size/resizable=false
+window/handheld/orientation="sensor_landscape"
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
@@ -61,6 +67,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 quality/shading/force_vertex_shading.mobile=false
 quality/filters/msaa=1
 environment/default_environment="res://default_env.tres"

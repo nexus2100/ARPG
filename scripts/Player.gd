@@ -9,12 +9,12 @@ var ACCELERATION = 10
 var air_acceleration = ACCELERATION/2
 var acceleration = ACCELERATION
 
-onready var mc = $Move_control
-onready var rc = $Rotate_control
-onready var bj = $Button_jump
-onready var bs = $Button_sit
+onready var mc = $Control/Move_control
+onready var rc = $Control/Rotate_control
+onready var bj = $Control/Button_jump
+onready var bs = $Control/Button_sit
 onready var sr:RayCast = $Head/Sign_ray
-onready var inf:Label = $Info
+onready var inf:Label = $Control/Info
 var is_sit:bool = false
 var jump:bool = false
 var grounded:bool = false
@@ -73,4 +73,3 @@ func what_sign(delta):
 	else:
 		inf.text = ""
 	pass
-
